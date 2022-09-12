@@ -1,0 +1,141 @@
+<script Language="javascript">
+/*
+Diketahui:
+Pegawai : Ridwan
+Jabatan : Manager
+Status : Menikah
+
+Tugas :
+Cetak Data Pegawai berbentuk tabel:
+Judul kolom gunakan thead
+Data-data gunaan tbody
+Nama Pegawai, Jabatan, Status.
+Gaji Pokok(if): Manager=>15 jt, Asisten Manager=>10 jt, Staff=>5 jt
+Tunjangan Jabatan: 15% dari gaji pokok
+BPJS: 10% dari gaji pokok
+Tunjangan Keluarga (ternary): dilihat dari status yang sudah menikah =>20% dari gaji pokok
+Total Gaji: jumlahkan seluruh element gaji (gunakan tfoot)
+
+Format pengumpulan tugas:
+Disimpan di Github masing-masing
+
+Contoh:
+Buat repo baru (javascript) -> file tugas di push di repo tersebut
+lalu linkknya didalam txt di assign ke LMS
+*/
+    // ----------------------------------------------Scope 1
+    var Pegawai = "Ridwan";
+    var Jabatan = 'Manager';
+    var Status = 'Menikah';
+    
+    // ----------------------------------------------Statement 1
+    if(Jabatan == 'Manager'){
+        gajiPokok = 15000000;
+    }
+    else if(Jabatan == 'AsistenManager'){
+        gajiPokok = 10000000;
+    }
+    else if(Jabatan == 'Staff'){
+        gajiPokok = 5000000;
+    }
+    else {
+        gajiPokok = 0;
+    }
+
+    // ----------------------------------------------Scope 2
+    let tunjanganJabatan = gajiPokok * 15 / 100;
+    let tunjanganKeluarga = gajiPokok * 20 / 100;
+    let BPJS = gajiPokok * 10 /100;
+    let totalGaji = gajiPokok + tunjanganJabatan + BPJS + tunjanganKeluarga;
+
+    // ----------------------------------------------Statement 2
+    if(Status == 'Menikah'){
+        tunjanganKeluarga = gajiPokok * 20 / 100;
+    }
+    else{
+        tunjanganKeluarga = 0;
+    }
+
+    // ----------------------------------------------Output
+    document.write(
+    "<h3>Data Pegawai :</h3>" + 
+    "Nama Pegawai = " + Pegawai +
+    "<br/>Jabatan = " + Jabatan +
+    "<br/>Status = " + Status
+    );
+</script>
+
+<!-- -------------------------Table of Content------------------------- -->
+<table border="2" cellpadding="7" width="400px">
+    <thead>
+        <tr bgcolor="#DFFF00" align="left">
+            <th>DATA</th>
+            <th>KETERANGAN</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>
+                <script Language="javascript">
+                    document.write("Gaji Pokok");
+                </script>
+            </td>
+            <td>
+                <script Language="javascript">
+                    document.write("Rp. " + gajiPokok);
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <script Language="javascript">
+                    document.write("Tunjangan Jabatan");
+                </script>
+            </td>
+            <td>
+                <script Language="javascript">
+                    document.write("Rp. " + tunjanganJabatan);
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <script Language="javascript">
+                    document.write("BPJS");
+                </script>
+            </td>
+            <td>
+                <script Language="javascript">
+                    document.write("Rp. " + BPJS);
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <script Language="javascript">
+                    document.write("Tunjangan Keluarga");
+                </script>
+            </td>
+            <td>
+                <script Language="javascript">
+                    document.write("Rp. "  + tunjanganKeluarga);
+                </script>
+            </td>
+        </tr>
+    </tbody>
+
+    <tfoot>
+        <th bgcolor="#40E0D0" align="left">
+            <script Language="javascript">
+                document.write("Total Gaji");
+            </script>
+        </th>
+        <th bgcolor="#40E0D0" align="left">
+            <script Language="javascript">
+                document.write("Rp. " + totalGaji);
+            </script>
+        </th>
+    </tfoot>
+</table>
+
