@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+        </head>
+        <body>
+        
+        <h1 align="center">Data Gempa Bumi</h1>
+        
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Lokasi Daerah</th>
+                    <th>Skala</th>
+                    <th>Dampak</th>
+                </tr>
+            </thead>
+            <tbody id="tampil"></tbody>
+        </table>
+        <script>
+            let tampil = document.getElementById('tampil')
+            let no = 1;
+            class Gempa {
+                constructor(lokasi, skala) {
+                    this.lokasi = lokasi;
+                    this.skala = skala;
+                }
+            
+                dampakGempa() {
+                    if (this.skala <= 2) {
+                        this.dampak = "Guncangan Lemah";}
+                    else if (this.skala <= 4) {
+                        this.dampak = "Guncangan Sedang";}
+                    else if (this.skala <= 6) {
+                        this.dampak = "Guncangan Berat";}
+                    else {
+                        this.dampak = "Rata dengan tanah :( ";}
+                    return this.dampak;
+                }
+
+                infoGempa() {
+                    tampil.innerHTML += `
+                        <tr>
+                            <td>${no++}</td>
+                            <td>${this.lokasi}</td>
+                            <td>${this.skala}</td>
+                            <td>${this.dampakGempa()}</td>
+                        </tr>
+                    `;
+                }
+            }
+
+            const gempa1 = new Gempa('Aceh', 2);
+            gempa1.infoGempa();
+            const gempa2 = new Gempa('Sumbar', 4);
+            gempa2.infoGempa();
+            const gempa3 = new Gempa('Jakarta', 8);
+            gempa3.infoGempa();
+            const gempa4 = new Gempa('Yogya', 1);
+            gempa4.infoGempa();
+            const gempa5 = new Gempa('Surabaya', 6);
+            gempa5.infoGempa();
+            const gempa6 = new Gempa('Bandung', 3);
+            gempa6.infoGempa();
+            const gempa7 = new Gempa('Palu', 4);
+            gempa7.infoGempa();
+            const gempa8 = new Gempa('Manado', 2);
+            gempa8.infoGempa();
+            const gempa9 = new Gempa('Riau', 5);
+            gempa9.infoGempa();
+            const gempa10 = new Gempa('Lampung', 6);
+            gempa10.infoGempa();
+        </script>
+</body>
+
+</html>
+
